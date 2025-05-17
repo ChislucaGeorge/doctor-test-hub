@@ -11,7 +11,7 @@ app.use(express.json()); // for parsing application/json
 
 // Routes
 app.use('/api/test', require('./routes/testRoutes'));
-
+mongoose.set('strictQuery', false);
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('✅ MongoDB connected'))
