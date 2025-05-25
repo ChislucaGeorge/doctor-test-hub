@@ -1,0 +1,123 @@
+/* Dynamic background stays the same */
+.home-hub-container {
+    min-height: 100vh;
+    background: linear-gradient(270deg, #5DCA92, #78DFAA, #A9EFFF, #7DDFF5);
+    background-size: 1000% 1000%;
+    animation: rainbowShift 15s ease infinite;
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  @keyframes rainbowShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Fix navbar overflow */
+  .navbar {
+    width: 100vw;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    box-sizing: border-box;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #7DDFF5;
+  }
+  
+  /* Wrap the description and chat side-by-side */
+  .main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 90vw;
+    margin: 3rem auto;
+    gap: 2rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+    color: #001F4D;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-text p {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .hero-image-container {
+    flex-shrink: 0;
+  }
+  
+  .hero-image {
+    height: 200px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: -10px 10px 30px rgba(121, 202, 255, 0.5);
+  }
+
+  .hero-section, .chat-placeholder {
+    flex: 1;
+    padding: 2rem;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chat-placeholder h2 {
+    color: #3FAE78;
+    margin-bottom: 1rem;
+  }
+  
+  .chat-box {
+    border: 2px dotted #7DDFF5;
+    padding: 1.5rem;
+    font-style: italic;
+    color: #666;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 15px 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.3rem;
+    color: #246761;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: all 0.5s ease;
+    border-radius: 6px;
+  }
+  
+  .nav-btn:hover {
+    background-color: #a9efff;
+    color: #003f5c;
+  }
+  
+  

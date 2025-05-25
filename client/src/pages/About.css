@@ -1,0 +1,26 @@
+.about-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px;
+    background: #ffffffcc;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .about-container h1 {
+    color: #0096c7;
+    margin-bottom: 20px;
+  }
+  
+  .about-container h2 {
+    margin-top: 30px;
+    color: #0077b6;
+  }
+  
+  .about-container p, .about-container li {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  

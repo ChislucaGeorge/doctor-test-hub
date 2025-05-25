@@ -1,0 +1,131 @@
+.collection-container {
+    display: flex;
+    height: 100vh;
+    background-color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Left vertical fixed bar */
+  .collection-sidebar {
+    width: 18%;
+    background-color: rgba(45, 43, 43, 0.741);
+    padding: 30px 20px;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .collection-sidebar h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    color: #fffffff2;
+  }
+  
+  .collection-sidebar button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background: #7ddff5;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .collection-sidebar button:hover {
+    background: #3fae78;
+  }
+  
+  @keyframes rainbowMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+
+  .collection-page {
+    display: flex;
+    height: 100vh;
+    background-color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .collection-main-wrapper {
+    width: 80%;
+    padding: 40px 15%;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #a6e3e9, #cbf1f5, #a0f0c7);
+    background-size: 200% 200%;
+    animation: rainbowMove 6s ease infinite;
+    overflow-y: auto;
+  }
+
+  .collection-container {
+    display: flex;
+    height: 100vh;
+    background-color: white;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .collection-sidebar {
+    background-color: rgba(50, 50, 50, 0.9);
+    width: 20%;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .collection-sidebar h2 {
+    margin-bottom: 20px;
+  }
+  
+  .collection-sidebar button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #7de3f4;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .collection-page-wrapper {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 0;
+    background-color: white;
+    overflow-y: auto;
+  }
+  
+  /* 🟥 Rainbow box in the center */
+  .questionnaire-rainbow-box {
+    width: 80%;
+    background: linear-gradient(-45deg,  
+    #5dca92,
+    #78dfaa,
+    #a9efff,
+    #7ddff5);
+    background-size: 200% 200%;
+    animation: rainbowMove 10s ease infinite;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* 🟨 Questionnaire card layout */
+  .questionnaire-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  
+  
+  
