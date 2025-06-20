@@ -122,8 +122,8 @@
   .questionnaire-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
+    gap: 45px;
+    justify-content: flex-start;
   }
   
   

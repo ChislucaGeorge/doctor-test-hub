@@ -1,23 +1,24 @@
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
-require('dotenv').config(); // Load .env variables
+require('dotenv').config();
 
+const connectDB = require('./config/db'); 
+const authRoutes = require('./routes/auth');
+const questionnaireRoutes = require('./routes/questionnaires');
 const app = express();
 
 // Middleware
 app.use(cors());
-app.use(express.json()); // for parsing application/json
+app.use(express.json());
+
+// Connect to DB
+connectDB(); // ✅ uses db.js
 
 // Routes
-app.use('/api/test', require('./routes/testRoutes'));
-mongoose.set('strictQuery', false);
-// MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('✅ MongoDB connected'))
-  .catch((err) => console.error('❌ DB error:', err));
+app.use('/api/auth', authRoutes);
+app.use('/api/questionnaires', questionnaireRoutes);
 
-// IMPORTANT: Use the port from Render (process.env.PORT)
+// Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`✅ Backend running on port ${PORT}`);

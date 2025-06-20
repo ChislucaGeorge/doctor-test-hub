@@ -4,10 +4,49 @@ import './Login.css';
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    navigate('/home'); // Just simulates login
+  const handleSubmit = async () => {
+    setError('');
+
+    if (!username || !password) {
+      return setError('Username and password are required');
+    }
+
+    if (isSignUp && password !== repeatPassword) {
+      return setError('Passwords do not match');
+    }
+
+    const endpoint = isSignUp ? 'register' : 'login';
+    try {
+      const response = await fetch(`http://localhost:5000/api/auth/${endpoint}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username,
+          password,
+          ...(isSignUp && { email: `${username}@example.com` }), // Dummy recovery email for now
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong');
+      }
+
+      // Store user info globally or in localStorage (example below)
+      localStorage.setItem('user', JSON.stringify(data));
+      navigate('/home'); // Redirect to homepage
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -17,17 +56,19 @@ const Login = () => {
           <h2>{isSignUp ? 'Sign Up' : 'Sign In'}</h2>
 
           <label>Username</label>
-          <input type="text" placeholder="Enter username" />
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter username" />
 
           <label>Password</label>
-          <input type="password" placeholder="Enter password" />
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter password" />
 
           {isSignUp && (
             <>
               <label>Repeat Password</label>
-              <input type="password" placeholder="Repeat password" />
+              <input type="password" value={repeatPassword} onChange={(e) => setRepeatPassword(e.target.value)} placeholder="Repeat password" />
             </>
           )}
+
+          {error && <p className="error">{error}</p>}
 
           <button className="btn-primary" onClick={handleSubmit}>
             {isSignUp ? 'Sign Up' : 'Sign In'}
